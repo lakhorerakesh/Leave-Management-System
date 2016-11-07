@@ -181,12 +181,9 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 3.2.1)
   devise
-  execjs
   jquery-rails
-  json
   koala (~> 1.10.0rc)
   nested_form
-  nokogiri
   omniauth
   omniauth-facebook
   pg

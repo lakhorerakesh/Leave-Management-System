@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
-gem 'json'
-gem 'nokogiri'
-gem 'execjs'
+# gem 'json'
+# gem 'nokogiri'
+# gem 'execjs'
 gem 'therubyracer'
 gem 'jquery-rails'
 gem 'devise'
