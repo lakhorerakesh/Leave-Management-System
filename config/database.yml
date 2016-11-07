@@ -1,6 +1,6 @@
 development:
   adapter:  postgresql
-  host:     localhost
+  host:     heroku
   encoding: unicode
   database: leave_management
   pool:     5
@@ -9,7 +9,7 @@ development:
   
 production:
   adapter:  postgresql
-  host:     localhost
+  host:     heroku
   encoding: unicode
   database: leave_management
   pool:     5
