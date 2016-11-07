@@ -4,7 +4,14 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  #config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.omniauth :facebook, "981063948688826", "f7f6d503a8d40f4605efad3f8c592cbe",  
+                  callback_url: "http://localhost:3000/users/auth/facebook/callback", 
+                  scope: 'user_friends, public_profile, email, publish_actions, manage_pages, publish_pages, user_posts,user_photos,user_birthday', 
+                  info_fields: 'email,name,location,friends',
+                  image_size: 'square'
+ # FACEBOOK_CONFIG = YAML.load_file("#{::Rails.root}/config/facebook.yml")[::Rails.env]
+
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
@@ -191,7 +198,7 @@ Devise.setup do |config|
   # config.navigational_formats = [:"*/*", "*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

@@ -1,9 +1,10 @@
 class Leave < ActiveRecord::Base
-  require 'lib/calender'
+  require 'calender'
   include LeaveCalender
-  
   belongs_to :user
-  validates   :start_date, :end_date, :reason_for_leave, :user_id, :manager_id, :presence => true
+  has_many :timings, :dependent => :destroy
+  accepts_nested_attributes_for :timings
+  validates :start_date, :end_date, :reason_for_leave, :user_id, :manager_id, :presence => true
 
   def leave_array(start_date, end_date)
     actual_start = actual_start_date(start_date)
@@ -17,8 +18,8 @@ class Leave < ActiveRecord::Base
     l_date_array
   end
 
-  def string_to_date(p_date)
-    str_array = p_date.split("/")
-    convert_to_date(str_array[2].to_i, str_array[0].to_i, str_array[1].to_i)
+  def total_days_count
+    self.timings.where("start_time IS NOT ? AND end_time IS NOT ?",nil,nil).count
   end
+
 end

@@ -1,11 +1,13 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, :only => [:cancel ]
-  before_filter :require_admin, :only => [:create, :new ]
+  #before_filter :require_admin, :only => [:create, :new ]
+  before_filter :check_permissions, :only => [:new, :create]
+  
   def new
     resource = build_resource({})
     @role = Role.all
     manager_role = Role.where(:name => "Manager")
-    @manager = User.where(:role_id => manager_role.id)
+    @manager = User.where(:role_id => manager_role)
     @manager << User.first if @manager.blank?
     respond_with resource
   end
@@ -34,14 +36,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
     message = "Employee Created Successfully"
     flash[key] = message if message.present?
   end
-
-  def require_admin
-    if current_user && current_user.is_admin?
-      true
-    else
-      flash[:notice] = "Contact admin to Create your account"
-      redirect_to new_user_session_path
-    end
+  
+  def check_permissions
+    authorize! :create, resource
   end
+
+  # def require_admin
+  #   if current_user && current_user.is_admin?
+  #     true
+  #   else
+  #     flash[:notice] = "Contact admin to Create your account"
+  #     redirect_to new_user_session_path
+  #   end
+  # end
 
 end

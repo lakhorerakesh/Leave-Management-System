@@ -1,6 +1,7 @@
 class HolidaysController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :require_admin, :only => [:create]
+  before_filter :check_permissions, :only => [:create]
+  
   def index
     @title = "Leave-Calender"
     @holiday = Holiday.new
@@ -41,13 +42,8 @@ class HolidaysController < ApplicationController
     redirect_to holidays_path(:year => year , :month =>month, :day => params[:current_day])
   end
 
-  def require_admin
-    if current_user && current_user.is_admin?
-      true
-    else
-      flash[:notice] = "You are not authorized to set holidays"
-      redirect_to new_user_session_path
-    end
+  def check_permissions
+    authorize! :create, current_user.is_admin?
   end
 
 end

@@ -8,10 +8,21 @@ gem 'therubyracer'
 gem 'jquery-rails'
 gem 'devise'
 gem 'pg'
-
+gem 'cancancan', '~> 1.10'
+gem 'bootstrap-timepicker-rails-addon'
+gem "nested_form"
+gem 'carrierwave'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "koala", "~> 1.10.0rc"
 group :development do
   gem 'rspec-rails', '2.7.0'
   gem 'mysql', '2.8.1'
+end
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+  gem 'pry'
 end
 
 group :test do

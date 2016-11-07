@@ -1,26 +1,46 @@
-<div class="form_container">
-  <%if @leaves.present? %>
-    <div class ="headline">
-      Your Leave History
-    </div>
-    <div class="title_bar"  style="color: Fuchsia; font: bold;background-color: #fff">
-      <span style="padding-left: 10px; width:50px"> Slno.</span>
-      <span style="width:130px"> Start Date</span>
-      <span style="width:130px"> End Date </span>
-      <span style="width:280px"> Reason </span>
-      <span style="width:100px"> Status </span>
-    </div>
-    <%  count = 0 %>
-    <%  @leaves.each do |leave| %>
-      <div class="title_bar">
-        <span style="padding-left: 10px; width: 50px"> <%=  count = count + 1 %> </span>
-        <span style="width:130px"> <%=  leave.start_date %></span>
-        <span style="width:130px"> <%=  leave.end_date %></span>
-        <span style="width:280px"> <%=  leave.reason_for_leave.truncate(30) %> </span>
-        <span style="width:100px;"> <%=leave.status%> </span>
-      </div>
-    <%end%>
-  <% else %>
-    <div> You have not applied for any leaves till now </div>
-  <%  end %>
+<div class="row">
+  <div class="col-lg-12">
+    <%if @leaves.present? %>
+      <section class="panel">
+        <header class="panel-heading">
+          <b>Your Leave History</b> 
+        </header>
+        <table class="table table-striped table-advance table-hover">
+          <thead>
+            <tr>
+             <th></i> Slno.</th>
+              <th></i> Start Date</th>
+              <th class="hidden-phone"> End Date</th>
+              <th></i>Reason</th>
+              <th></i>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%  count = 0 %>
+            <%  @leaves.each do |leave| %>
+              <tr>
+                <td><a href="#"><%=  count = count + 1 %></a></td>
+                <td class="hidden-phone"><%=  leave.start_date %></td>
+                <td><%=  leave.end_date %> </td>
+                <td><span class=""><%=  leave.reason_for_leave.truncate(25) %></span></td>
+                
+                <td>
+                <% if leave.status == "Approved"%>
+                  <span class="label label-info label-mini">
+                  <%=leave.status%></span>
+                <%else%>
+                  <span class="label label-danger label-mini">
+                  <%=leave.status%></span>
+                <%end%>
+                </td>
+              </tr>
+            <%end%>
+          <% else %>
+            <div style="color: red;"> You have not applied for any leaves till now</div>
+          <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
 </div>

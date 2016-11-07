@@ -1,5 +1,4 @@
 module LeaveCalender
-  
   require 'date'
 
   def days_in_months(year, month)
@@ -73,5 +72,4 @@ module LeaveCalender
   def day_of_week(year, month, day)
     Date.new(year, month, day).strftime("%a")
   end
-
 end

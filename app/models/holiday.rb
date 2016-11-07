@@ -1,6 +1,5 @@
 class Holiday < ActiveRecord::Base
-
-  require 'lib/calender'
+  require 'calender'
   include LeaveCalender
 
   def self.week_day(no)

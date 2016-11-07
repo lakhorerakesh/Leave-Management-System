@@ -1,0 +1,139 @@
+<div id="listview">
+  <table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th style="text-align: left; padding-left: 0;  width: 249px;">Date</th>
+        <th style="text-align: left; width:82px;">Full</th>
+        <th style="text-align: left; width:82px;">Half</th>
+        <th style="text-align: left; width:82px;">Start time</th>
+        <th style="text-align: left; width:82px;">End time</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% if @timings.present?%>
+        <% @timings.each_with_index do |time,index|%>
+          <tr>
+            <td><%= time.leave_date%></td>
+            <%if time.my_boolean == 2
+              half=true
+              full=false
+              else
+                half=false
+                full=true
+              end
+                %>
+            <td><input type="checkbox" name="leave[timings_attributes][<%=time.leave_date%>][my_boolean]" value="1" data-date-id="<%=time.leave_date%>" class="label_check c_off timing-checkbox" id="example2_<%=index%>"  data-date-id="<%=time.leave_date %>"  <%if full %> checked="true"<%end%>> Full</td>
+
+            <td><input type="checkbox" name="leave[timings_attributes][<%=time.leave_date%>][my_boolean]" value="2"  data-date-id="<%=time.leave_date %>" class="label_check c_off timing-checkbox" id="<%=index%>" data-date-id="<%=time.leave_date%>) %>" <%if half %> checked="true"<%end%>> Half</td>
+            <input type="hidden" name="leave[timings_attributes][<%=time.leave_date%>][id]" value="<%= time.id%>">
+
+            <td> <input type="text" size="30" placeholder="start-time" name="leave[timings_attributes][<%=time.leave_date%>][start_time]" class="check timepicker ui-timepicker-input" autocomplete="off" value="<%=time.start_time.strftime("%I:%M %p")  rescue "" %>" style="margin-top: 6px;"></td>
+             
+            <td><input type="text" size="30" placeholder="end-time" name="leave[timings_attributes][<%=time.leave_date%>][end_time]"  class="check timepicker ui-timepicker-input" autocomplete="off" value="<%= time.end_time.strftime("%I:%M %p")  rescue "" %>" style="margin-top: 6px;"></td>
+          </tr>
+        <%end%>
+      <%else%>
+        <% @working_days.each_with_index do |wd,index| %>
+          <tr>
+            <td><%= wd.strftime("%d %b %y : %A") %></td>
+            <td><input type="checkbox" name="leave[timings_attributes][<%=wd.strftime("%Y-%m-%e")%>][my_boolean]" value="1" id="example1_<%=index%>"  data-date-id="<%=wd.strftime("%d %b %y") %>" class="example label_check c_off" checked="true"> Full </td>
+
+           <td><input type="checkbox" name="leave[timings_attributes][<%=wd.strftime("%Y-%m-%e")%>][my_boolean]" value="2" id="<%=index%>" data-date-id="<%=wd.strftime("%d %b %y") %>" class="example label_check c_off"> Half </td>
+
+            <td>
+             <input type="text" size="30" placeholder="start-time" name="leave[timings_attributes][<%=wd.strftime("%Y-%m-%e")%>][start_time]" id="timepicker<%=index%>" class="check timepicker ui-timepicker-input" autocomplete="off" style="margin-top: 6px;" hidden/></td>
+             
+             <td><input type="text" size="30" placeholder="end-time" name="leave[timings_attributes][<%=wd.strftime("%Y-%m-%e")%>][end_time]" id="timepicker_<%=index%>" class="check timepicker ui-timepicker-input" autocomplete="off" style="margin-top: 6px;" hidden/>
+            </td>
+          </tr>
+        <%end%>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+ 
+  $('.timepicker').timepicker({
+   showPeriod: true,
+   showLeadingZero: true
+  });
+
+
+
+$(document).on("change",".example",function(){
+  var id = $(this).attr("id");
+  var date_id = $(this).data('date-id');
+   
+  if($("#"+id).is(':checked'))
+  {
+    $('#example1_'+id).prop('checked', false);
+    $("#timepicker_"+id).css("display","inline");
+    $("#timepicker"+id).css("display","inline");
+  }
+  else if($("#example1_"+id).is(':checked'))
+  { 
+    $("#"+id).prop('checked',false);
+    $("#timepicker_"+id).css("display","none");
+    $("#timepicker"+id).css("display","none");
+  }
+  else{
+   $("#example1_"+id).prop('checked',true);
+   $("#"+id).prop('checked',false);
+   $("#timepicker_"+id).css("display","none");
+   $("#timepicker"+id).css("display","none");
+  }
+ });
+
+$(document).on("change",".timing-checkbox",function(){
+  var id = $(this).attr("id");
+  var date_id = $(this).data('date-id');
+  if($("#"+id).is(':checked'))
+  {
+    $('#example2_'+id).prop('checked', false);
+  }
+  else if($("#example2_"+id).is(':checked'))
+  { 
+    $("#"+id).prop('checked',false);
+  }
+  else{
+   $("#example2_"+id).prop('checked',true);
+   $("#"+id).prop('checked',false);
+  }
+});
+
+$(document).ready(function() {
+  $('#example').DataTable( {
+    "scrollY":        "200px",
+    "scrollCollapse": true,
+    "paging":         false
+    });
+  });
+</script> 
+
+<style type="text/css">
+   #listview{
+    height: 100px;
+    overflow: auto;
+    width: 83%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .check{
+    width: 200px;
+  }
+ /* #new_leave td, th {
+    padding: 9px;
+    color: #000;
+}
+#new_leave b, strong {
+    color: #000;
+    font-weight: 700;
+}
+#new_leave .form-control {
+    border: 1px solid #000;
+    box-shadow: none;
+    color: #000;
+}*/
+</style>

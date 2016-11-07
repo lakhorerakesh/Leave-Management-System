@@ -5,14 +5,14 @@ class LmsMailer < ActionMailer::Base
     @user = user
     @working_days = working_days
     @leave_days = leave_days
-    mail(:to => user.manager.email, :subject => "Leave request for #{leave.total_days}", :from => user.email)
+    mail(:to => user.manager.email, :subject => "Leave request for #{leave.total_days}", :from => "neetajain.pis@gmail.com")
   end
 
   def leave_approved(leave,user, status)
     @leave = leave
     @user = user
     @status = status
-    mail(:to => leave.user.email, :subject => "Leave request", :from => user.email)
+    mail(:to => leave.user.email, :subject => "Leave request", :from => "neetajain.pis@gmail.com")
   end
 
 end

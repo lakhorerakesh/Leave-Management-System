@@ -1,14 +1,22 @@
-<%= form_for(@leave) do |f| %>
-  <div class ="headline">
-    Edit Your Leave
-  </div>
-  <div class="error_msg">
-    <%= render "error_messages", :target => @leave %>
-  </div>
-  <div class="form_container">
-    <%= render 'form', :f => f %>
-    <div class ="bottom_line_wb">
-      <%=  submit_tag "save" %>
+<div class="col-md-12">
+  <section class="panel">
+    <header class="panel-heading">
+      <b> Edit Your Leaves</b>
+    </header>
+    <div class="panel-body">
+      <%= nested_form_for(@leave) do |f| %>
+      <form class="form-horizontal" role="form">
+         <div class="error_msg">
+           <%= render "error_messages", :target => @leave %>
+          </div>
+         <%= render 'form', :f => f %>
+         <div class="form-group row">
+           <div class="col-md-offset-3 col-md-10">
+             <%= f.submit "Update Leave",class:"btn btn-info" %>
+            </div>
+          </div>
+        </form>
+      <% end %>
     </div>
-  </div>
-<% end %>
+  </section>
+</div>

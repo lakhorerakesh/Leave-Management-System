@@ -1,21 +1,17 @@
 <div id="show_container" class="form_container">
   <div class ="headline">
-   Leave Detail
+   <b style="margin-right: 183px;">Leave Details</b>
   </div>
   <div class="l_row">
     <span class="l_label">
-      Total No of Days:<span class="mandatory"></span>
+      No of Leave Days:<span class="mandatory"></span>
     </span>
     <span class="r_label">
-      <%=@leave.total_days%>
-    </span>
-  </div>
-  <div class="l_row">
-    <span class="l_label">
-      No of working Days:<span class="mandatory"></span>
-    </span>
-    <span class="r_label">
-      <%=@leave.total_days.to_i - @leave.holiday_days.to_i%>
+    <%if @half_days.count >1%>
+      <%=@total_full_days%> Full days And <%= @half_days.count%> Half days
+    <%else%>
+      <%=@total_full_days%> Full days And <%= @half_days.count%> Half day
+    <%end%>
     </span>
   </div>
   <div class="l_row">
@@ -28,18 +24,10 @@
   </div>
   <div class="l_row">
     <span class="l_label">
-      Start Date:<span class="mandatory"></span>
+      Status:<span class="mandatory"></span>
     </span>
     <span class="r_label">
-      <%= @leave.start_date  %>
-    </span>
-  </div>
-  <div class="l_row">
-    <span class="l_label">
-      End Date:<span class="mandatory"></span>
-    </span>
-    <span class="r_label">
-      <%= @leave.end_date  %>
+      <%= @leave.status  %>
     </span>
   </div>
   <div class="l_row">
@@ -50,8 +38,23 @@
       <%= @leave.reason_for_leave %>
     </span>
   </div>
-  <div class ="bottom_line_wb">
-    <span class="link_button"><%= link_to 'Approve', approve_leave_leafe_path(@leave), :method => 'put' %></span> &nbsp;&nbsp;
-  <span class="link_button"><%= link_to 'Reject', approve_leave_leafe_path(@leave, :rejected => "Rejected"), :method => 'put' %></span>
+  <% @half_days.each do |day|%>
+    <div class="l_row">
+    <span class="l_label">
+      Half Day Leave:<span class="mandatory"></span>
+    </span>
+    <span class="r_label">
+      <%= day.leave_date rescue "" %> 
+      <%= day.start_time.strftime("%I:%M %p") rescue ""%>
+      <%= day.end_time.strftime("%I:%M %p") rescue ""%>
+    </span>
+  </div>
+  <%end%>
+  <div class ="bottom_line_wb" style="padding-right: 184px;">
+    <% if @leave.status == "Approved" || @leave.status == "Rejected"%>
+    <%else%>
+      <span><% if can? :approved, Leave%><%= link_to 'Approve', approve_leave_leave_path(@leave),class:"btn btn-round btn-success" %></span><%end%> &nbsp;&nbsp;
+      <span><% if can? :rejected, Leave%><%= link_to 'Reject', approve_leave_leave_path(@leave, :rejected => "Rejected"),class:"btn btn-round btn-danger"%><%end%></span>
+    <%end%>
   </div>
 </div>

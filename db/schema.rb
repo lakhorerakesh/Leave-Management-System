@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422064751) do
+ActiveRecord::Schema.define(:version => 20161013115146) do
 
   create_table "holidays", :force => true do |t|
     t.integer  "day"
@@ -48,6 +49,16 @@ ActiveRecord::Schema.define(:version => 20120422064751) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "timings", :force => true do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "leave_id"
+    t.string   "leave_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "my_boolean"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "name"
@@ -58,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120422064751) do
     t.date     "end_date"
     t.integer  "salary"
     t.integer  "leave_used"
+    t.string   "image"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -69,6 +81,9 @@ ActiveRecord::Schema.define(:version => 20120422064751) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
