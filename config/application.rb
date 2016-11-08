@@ -63,5 +63,6 @@ module LeaveManagementSystem
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     Koala.config.api_version = 'v2.0'
+    config.assets.initialize_on_precompile = false
   end
 end
