@@ -11,9 +11,14 @@
  *= require leave_management
  *= require bootstrap-timepicker
  *= require_self
+ *= require bootstrap.min
+ *= require bootstrap-reset
+ *= require slidebars
+ *= require style
+ *= require style-responsive
  *= require_tree .
+ 
 */
-body{/*background-color:black*/}
 #main_container{background-image:url(bgBody.png); width:1000px;margin-left: 105px; float: left }
 .welcome{color: darkCyan}
 .superHeader{ background: url(bgHeader.png) repeat-x; }
