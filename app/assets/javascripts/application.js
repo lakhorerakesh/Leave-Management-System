@@ -15,4 +15,11 @@
 //= require jquery_nested_form
 //= require bootstrap-timepicker
 //= require jquery.ui.datepicker
+//= require bootstrap.min
+//= require jquery.scrollTo.min
+//= require jquery.nicescroll
+//= require respond.min
+//= require query.dcjqaccordion.2.7
+//= require slidebars.min
+//= require common-scripts
 //= require_tree .
