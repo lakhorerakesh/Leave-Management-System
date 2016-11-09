@@ -9,8 +9,6 @@
     <script src="//jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"rel="stylesheet">
-
-
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="//jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
     
@@ -20,9 +18,9 @@
     <%= stylesheet_link_tag 'slidebars'%>
     <%= stylesheet_link_tag 'style'%>
     <%= stylesheet_link_tag 'style-responsive'%>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-   <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'font-awesome'%>
+    <%= stylesheet_link_tag 'application'%>
+   <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -119,7 +117,7 @@
                   </li>
                   <li class="sub-menu">
                       <a href="/leaves/leave_to_approve">
-                          <i class=" fa fa-envelope"></i>
+                          <i class="fa fa-envelope"></i>
                           <span>Approve Leave</span>
                       </a>
                   </li>
