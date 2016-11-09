@@ -49,7 +49,7 @@ class LeavesController < ApplicationController
     @leave.total_days = @total_days.size
     if @leave.valid?
       @leave.save
-      LmsMailer.applied_for_leave(@leave, current_user, @working_day, @holiday_day).deliver
+      # LmsMailer.applied_for_leave(@leave, current_user, @working_day, @holiday_day).deliver
       redirect_to leaves_path
     else
       render 'new'
@@ -114,7 +114,7 @@ class LeavesController < ApplicationController
 
     if @leave.valid?
       @leave.save
-      LmsMailer.applied_for_leave(@leave, current_user, @working_day, @holiday_day).deliver
+      # LmsMailer.applied_for_leave(@leave, current_user, @working_day, @holiday_day).deliver
       redirect_to leaves_path
     else
       render 'edit'
@@ -136,7 +136,7 @@ class LeavesController < ApplicationController
     leave = Leave.find(params[:id])
     status = params[:rejected].present? ? params[:rejected] : "Approved"
     if leave.update_attribute("status",status)
-      LmsMailer.leave_approved(leave,current_user, status).deliver
+      # LmsMailer.leave_approved(leave,current_user, status).deliver
       redirect_to leave_to_approve_leaves_path
     end
   end
