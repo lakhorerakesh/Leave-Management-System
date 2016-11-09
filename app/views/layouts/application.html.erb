@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="//jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
     
-    <link rel="stylesheet" href="bootstrap.min.css">
     <title>Leave-Management</title>
-    <%#= stylesheet_link_tag  'bootstrap.min' %>
-    <%#= stylesheet_link_tag  'bootstrap-reset' %>
-    <%#= stylesheet_link_tag 'slidebars'%>
-    <%#= stylesheet_link_tag 'style'%>
-    <%#= stylesheet_link_tag 'style-responsive'%>
+    <%= stylesheet_link_tag  'bootstrap.min' %>
+    <%= stylesheet_link_tag  'bootstrap-reset' %>
+    <%= stylesheet_link_tag 'slidebars'%>
+    <%= stylesheet_link_tag 'style'%>
+    <%= stylesheet_link_tag 'style-responsive'%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
    <%= csrf_meta_tags %>
@@ -163,12 +162,12 @@
 
 
     <script src="<%#= asset_path("jquery.js")%>"></script>
-    <script src="<%#= asset_path("bootstrap.min.js")%>"></script>
-    <script src="<%#= asset_path("jquery.scrollTo.min.js")%>"></script>
-    <script src="<%#= asset_path("jquery.nicescroll.js")%>"></script>
-    <script src="<%#= asset_path("respond.min.js")%>"></script>
-    <script src="<%#= asset_path("jquery.dcjqaccordion.2.7.js")%>"></script>
-    <script src="<%#= asset_path("slidebars.min.js")%>"></script>
-    <script src="<%#= asset_path("common-scripts.js")%>"></script>
+    <script src="<%= asset_path("bootstrap.min.js")%>"></script>
+    <script src="<%= asset_path("jquery.scrollTo.min.js")%>"></script>
+    <script src="<%= asset_path("jquery.nicescroll.js")%>"></script>
+    <script src="<%= asset_path("respond.min.js")%>"></script>
+    <script src="<%= asset_path("jquery.dcjqaccordion.2.7.js")%>"></script>
+    <script src="<%= asset_path("slidebars.min.js")%>"></script>
+    <script src="<%= asset_path("common-scripts.js")%>"></script>
   </body>
 </html>
