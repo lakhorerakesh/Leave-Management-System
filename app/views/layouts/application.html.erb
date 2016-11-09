@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="//jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"rel="stylesheet">
 
 
@@ -14,13 +15,19 @@
     <link rel="stylesheet" href="//jonthornton.github.io/jquery-timepicker/jquery.timepicker.css">
     
     <title>Leave-Management</title>
-    <%#= stylesheet_link_tag  'bootstrap.min' %>
-    <%#= stylesheet_link_tag  'bootstrap-reset' %>
-    <%#= stylesheet_link_tag 'slidebars'%>
-    <%#= stylesheet_link_tag 'style'%>
-    <%#= stylesheet_link_tag 'style-responsive'%>
-    <%= stylesheet_link_tag  'application' %>
-    <%= javascript_include_tag  'application' %>
+    <link href="/assets/bootstrap.min.css" media="screen" rel="stylesheet" />
+    <link href="/assets/bootstrap-reset.css" media="screen" rel="stylesheet" />
+    <link href="/assets/slidebars.css" media="screen" rel="stylesheet" />
+    <link href="/assets/style.css" media="screen" rel="stylesheet" />
+    <link href="/assets/style-responsive.css" media="screen" rel="stylesheet" />
+    <%#= stylesheet_link_tag  '' %>
+    <%#= stylesheet_link_tag  '' %>
+    <%#= stylesheet_link_tag ''%>
+    <%#= stylesheet_link_tag ''%>
+    <%#= stylesheet_link_tag ''%>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   <%= csrf_meta_tags %>
   </head>
 
   <body>
