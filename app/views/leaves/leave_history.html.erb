@@ -11,8 +11,9 @@
              <th></i> Slno.</th>
               <th></i> Start Date</th>
               <th class="hidden-phone"> End Date</th>
-              <th></i>Reason</th>
-              <th></i>Status</th>
+              <th>Name</th>
+              <th>Reason</th>
+              <th>Status</th>
               <th></th>
             </tr>
           </thead>
@@ -22,7 +23,8 @@
               <tr>
                 <td><a href="#"><%=  count = count + 1 %></a></td>
                 <td class="hidden-phone"><%=  leave.start_date %></td>
-                <td><%=  leave.end_date %> </td>
+                <td><%=  leave.end_date %></td>
+                <td><%= leave.user.name.upcase%></td>
                 <td><span class=""><%=  leave.reason_for_leave.truncate(25) %></span></td>
                 
                 <td>
