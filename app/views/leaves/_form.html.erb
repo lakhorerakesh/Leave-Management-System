@@ -25,7 +25,7 @@
 
 
 <script>
-$(".datepicker").datepicker({dateFormat: 'yy-mm-dd' });
+$(".datepicker").datepicker({dateFormat: 'yy-mm-dd' , minDate: 0});
 
 $(document).on("change","#data",function(){
   var start_date = $('#inputEmail1').val();
