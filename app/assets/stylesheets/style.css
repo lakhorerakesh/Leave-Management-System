@@ -3249,10 +3249,10 @@ table.sliders tr td {
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    background: #fff !important;
+    /*background: #fff !important;
     border: 3px solid #22bacf !important;
     border-radius: 50% !important;
-    -webkit-border-radius: 50% !important;
+    -webkit-border-radius: 50% !important;*/
 }
 
 .ui-slider-vertical {
