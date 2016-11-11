@@ -57,7 +57,12 @@
  
   $('.timepicker').timepicker({
    showPeriod: true,
-   showLeadingZero: true
+   showLeadingZero: true,
+    'disableTimeRanges': [
+        ['12am', '3am'],
+        ['3am', '9am']
+    ]
+
   });
 
 
@@ -72,8 +77,9 @@ $(document).on("change",".example",function(){
     $("#timepicker_"+id).css("display","inline");
     $("#timepicker"+id).css("display","inline");
   }
-  else if($("#example1_"+id).is(':checked'))
-  {
+  else 
+    if($("#example1_"+id).is(':checked'))
+  {  
     $("#"+id).prop('checked',false);
     $("#timepicker_"+id).css("display","none");
     $("#timepicker"+id).css("display","none");
