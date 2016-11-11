@@ -26,7 +26,7 @@
                 <td><a href="#"><%=  count = count + 1 %></a></td>
                 <td class="hidden-phone"><%=  leave.start_date %></td>
                 <td><%=  leave.end_date %> </td>
-                <td><%= leave.user.name%></td>
+                <td><%= leave.user.name.upcase%></td>
                 <%if leave.total_days_count >1%>
                   <td><%= leave.working_days - leave.total_days_count%> Full days <%=leave.total_days_count%> Half days</td>
                 <% else%>
