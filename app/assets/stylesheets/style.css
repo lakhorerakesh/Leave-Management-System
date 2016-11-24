@@ -6215,3 +6215,7 @@ header.blue-bg .search:focus {
     background: #fff;
     border-radius:4px;
 }
+
+label.control-label span{
+    color: red;
+}

@@ -1,55 +1,55 @@
 <div class="form-group row">
-  <label for="inputEmail1" class="col-md-3 col-sm-2 control-label">Name*</label>
+  <label for="inputEmail1" class="col-md-3 col-sm-2 control-label">Name<span>*</span></label>
     <div class="col-md-7">
-     <%= f.text_field :name,class:"form-control", id:"inputEmail1", placeholder:"Name" %>
+     <%= f.text_field :name,class:"form-control", id:"inputEmail1", placeholder:"Name",:required => true %>
     </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Email*</label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Email<span>*</span></label>
   <div class="col-md-7">
-    <%= f.email_field :email,class:"form-control", id:"inputPassword1", placeholder:"Email"%>
+    <%= f.email_field :email,class:"form-control", id:"inputPassword1", placeholder:"Email",:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Password* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Password<span>*</span> </label>
   <div class="col-md-7">
-   <%= f.password_field :password,class:"form-control", id:"inputPassword1", placeholder:"Password"%>
+   <%= f.password_field :password,class:"form-control", id:"inputPassword1", placeholder:"Password",:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Password Confirmation* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Password Confirmation<span>*</span> </label>
   <div class="col-md-7">
-   <%= f.password_field :password_confirmation,class:"form-control", id:"inputPassword1", placeholder:"Password Confirmation"%>
+   <%= f.password_field :password_confirmation,class:"form-control", id:"inputPassword1", placeholder:"Password Confirmation",:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">date of joining* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">date of joining<span>*</span> </label>
   <div class="col-md-7">
-  <%= f.text_field :joining_date,class:"form-control", id:"inputjoiningdate", placeholder:"Joining date"%>
+  <%= f.text_field :joining_date,class:"form-control", id:"inputjoiningdate", placeholder:"Joining date",:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Salary* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Salary<span>*</span> </label>
   <div class="col-md-7">
-   <%= f.text_field :salary,class:"form-control", id:"inputPassword1", placeholder:"Salary"%>
+   <%= f.text_field :salary,class:"form-control", id:"inputPassword1", placeholder:"Salary",:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Avatar* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Avatar<span>*</span> </label>
   <div class="col-md-7">
-   <%= f.file_field :image,style:"border: medium none;"%>
+   <%= f.file_field :image,style:"border: medium none;",:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Role* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Role<span>*</span> </label>
   <div class="col-md-7">
-   <%=f.select :role_id, options_from_collection_for_select(@role, "id", "name") %>
+   <%=f.select :role_id, options_from_collection_for_select(@role, "id", "name"),:required => true%>
   </div>
 </div>
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Manager* </label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Manager<span>*</span> </label>
   <div class="col-md-7">
-   <%= f.select :manager_id, options_from_collection_for_select(@manager, "id", "name") %>
+   <%= f.select :manager_id, options_from_collection_for_select(@manager, "id", "name"),:required => true%>
   </div>
 </div>
 <script type="text/javascript">

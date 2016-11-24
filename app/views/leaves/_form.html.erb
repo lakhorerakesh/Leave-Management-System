@@ -1,13 +1,13 @@
 <div class="form-group row">
-    <label for="inputEmail1" class="col-md-3 col-sm-2 control-label">Start Date*</label>
+    <label for="inputEmail1" class="col-md-3 col-sm-2 control-label">Start Date<span>*</span></label>
       <div class="col-md-7">
-        <%= f.text_field :start_date,class:"form-control datepicker", id:"inputEmail1", placeholder:"Start Date",:autocomplete => :off%>
+        <%= f.text_field :start_date,class:"form-control datepicker", id:"inputEmail1", placeholder:"Start Date",:autocomplete => :off,:required => true%>
       </div>
   </div>
   <div class="form-group row" id="data">
-    <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">End Date*</label>
+    <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">End Date<span>*</span></label>
     <div class="col-md-7">
-      <%= f.text_field :end_date ,class:"form-control datepicker", id:"inputPassword1", placeholder:"End Date",:autocomplete => :off%>
+      <%= f.text_field :end_date ,class:"form-control datepicker", id:"inputPassword1", placeholder:"End Date",:autocomplete => :off,:required => true%>
     </div>
   </div>
   <div id="checklist">
@@ -17,9 +17,9 @@
   </div>
 
 <div class="form-group row">
-  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Reason For Leave*</label>
+  <label for="inputPassword1" class="col-md-3 col-sm-2 control-label">Reason For Leave<span>*</span></label>
   <div class="col-md-7">
-    <%= f.text_area :reason_for_leave,class:"form-control", id:"inputPassword1", placeholder:"Reason For Leave"%>
+    <%= f.text_area :reason_for_leave,class:"form-control", id:"inputPassword1", placeholder:"Reason For Leave",:required => true%>
   </div>
 </div>
 
