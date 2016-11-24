@@ -47,15 +47,15 @@
               -moz-border-radius: 0 0 6px 6px; -webkit-border-radius:	0 0 6px 6px; border-radius:0 0 6px 6px; border:1px solid #ea008f; border-top: none;}
 
 .form_container{width:700px;float: left;margin-left:140px;margin-top: 30px;}
-#show_container .r_label{width:300px;border-bottom: solid 1px;border-top: solid 1px}
+#show_container .r_label{width:300px;}
 .flashNotice{width:700px;float: left;margin-left:160px;margin-top: 30px;color: green;text-align: center}
 #menu{width:700px;float: left;margin-bottom: 20px;margin-top: 30px;background-color: #ffffff}
 .bottom_line{width:700px;float: left;margin-bottom: 20px;margin-top: 30px;background-color: #ffffff;text-align: center}
 .bottom_line_wb{width:700px;float: left;margin-bottom: 20px;margin-top: 30px;text-align: center}
 .headline{width:700px;float: left;margin-top: 30px;margin-bottom: 30px;background-color: none;text-align: center}
 .l_row{height: 30px;line-height: 40px;}
-.l_label{width: 300px;float:left;border-bottom: solid 1px;border-top: solid 1px }
-.r_label{float: left;border-bottom: solid 1px;border-top: solid 1px}
+.l_label{width: 300px;float:left;border-top: solid 1px }
+.r_label{float: left;border-top: solid 1px}
 .line{color: Fuchsia;font-size: 1px}
 
 .title_bar{width:700px;float: left;height: 30px; line-height: 32px}
